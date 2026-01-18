@@ -47,6 +47,7 @@ export default function Groups() {
       await api.post('/groups', newGroup);
       toast.success('Group created successfully!');
       setNewGroup({ name: '', description: '', contribution_amount: 0, contribution_frequency: 'monthly' });
+      setCreateOpen(false);
       fetchGroups();
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Failed to create group');
