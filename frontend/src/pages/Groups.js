@@ -14,6 +14,8 @@ export default function Groups() {
   const [loading, setLoading] = useState(true);
   const [createLoading, setCreateLoading] = useState(false);
   const [joinCode, setJoinCode] = useState('');
+  const [createOpen, setCreateOpen] = useState(false);
+  const [joinOpen, setJoinOpen] = useState(false);
   
   const [newGroup, setNewGroup] = useState({
     name: '',
