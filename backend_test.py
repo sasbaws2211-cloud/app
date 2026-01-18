@@ -12,7 +12,7 @@ class SusuFlowAPITester:
         self.tests_run = 0
         self.tests_passed = 0
         self.test_user_email = f"test_user_{datetime.now().strftime('%H%M%S')}@test.com"
-        self.test_user_phone = f"+233{datetime.now().strftime('%H%M%S')}"
+        self.test_user_phone = f"+233{datetime.now().strftime('%H%M%S')}000"
         self.test_user_name = "Test User"
         self.test_password = "TestPass123!"
         self.group_id = None
