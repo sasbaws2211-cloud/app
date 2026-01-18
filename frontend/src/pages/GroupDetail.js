@@ -101,7 +101,7 @@ export default function GroupDetail() {
             <p className="text-emerald-200 text-sm mb-2">GROUP BALANCE</p>
             <h2 className="font-chivo text-5xl font-bold mb-4">GH₵ {group.wallet_balance?.toFixed(2) || '0.00'}</h2>
             
-            <Dialog>
+            <Dialog open={contributeOpen} onOpenChange={setContributeOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-white text-emerald-900 hover:bg-emerald-50 rounded-full" data-testid="contribute-button">
                   Contribute
