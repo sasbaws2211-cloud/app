@@ -77,6 +77,7 @@ export default function Wallet() {
       await api.post('/wallet/withdraw', withdrawData);
       toast.success('Withdrawal initiated!');
       setWithdrawData({ amount: '', phone_number: '', provider: 'MTN' });
+      setWithdrawOpen(false);
       fetchData();
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Withdrawal failed');
