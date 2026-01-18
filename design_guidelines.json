@@ -1,0 +1,125 @@
+{
+  "identity": {
+    "name": "SusuFlow",
+    "persona": "E1: The Anti-AI Designer",
+    "tone": "Trustworthy, Community-Driven, Transparent, Solid",
+    "archetype": "Organic & Earthy (Trust, Growth, Stability)"
+  },
+  "typography": {
+    "primary_font": "Chivo",
+    "secondary_font": "Inter",
+    "font_import_url": "https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap",
+    "rules": {
+      "headings": "font-chivo font-bold tracking-tight text-emerald-950",
+      "body": "font-inter text-slate-600 leading-relaxed",
+      "labels": "font-chivo font-medium uppercase tracking-widest text-xs text-slate-500",
+      "numbers": "font-chivo font-bold tracking-tight tabular-nums"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#064E3B",
+        "foreground": "#FFFFFF",
+        "description": "Deep Forest Green - Represents growth, money, and stability."
+      },
+      "secondary": {
+        "DEFAULT": "#F5F5F4",
+        "foreground": "#1C1917",
+        "description": "Stone/Warm Grey - Represents community, earth, grounding."
+      },
+      "accent": {
+        "DEFAULT": "#0EA5E9",
+        "foreground": "#FFFFFF",
+        "description": "Vibrant Sky Blue - Represents trust, technology, and clarity."
+      },
+      "background": "#FFFFFF",
+      "surface": "#FAFAFA",
+      "border": "#E5E5E5",
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444"
+    },
+    "gradients": {
+      "hero": "bg-gradient-to-br from-emerald-50 to-stone-100",
+      "card_active": "bg-gradient-to-br from-white to-emerald-50/50"
+    }
+  },
+  "layout": {
+    "spacing_scale": "Generous (2x standard)",
+    "container_padding": "p-6 md:p-12 lg:p-20",
+    "grid_system": {
+      "dashboard": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+      "marketing": "grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12"
+    },
+    "border_radius": {
+      "default": "rounded-xl",
+      "button": "rounded-full",
+      "card": "rounded-2xl"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-emerald-900 text-white hover:bg-emerald-800 shadow-lg hover:shadow-xl transition-all duration-300 rounded-full px-8 py-6 text-lg font-bold",
+      "secondary": "bg-stone-100 text-emerald-900 hover:bg-stone-200 border border-stone-200 rounded-full px-6 py-6 font-semibold",
+      "ghost": "text-slate-600 hover:text-emerald-900 hover:bg-emerald-50/50 rounded-lg px-4 py-2"
+    },
+    "cards": {
+      "default": "bg-white border border-stone-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl p-6",
+      "highlight": "bg-emerald-900 text-white border-none shadow-xl rounded-2xl p-8 relative overflow-hidden"
+    },
+    "inputs": {
+      "default": "bg-stone-50 border-stone-200 focus:border-emerald-500 focus:ring-emerald-500/20 rounded-lg h-12 px-4 text-lg"
+    }
+  },
+  "visual_enhancers": {
+    "textures": "Use subtle noise overlays or abstract woven patterns (opacity 0.03) on solid backgrounds to add depth.",
+    "shadows": "shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+    "glassmorphism": "backdrop-blur-xl bg-white/80 border border-white/20 shadow-sm"
+  },
+  "image_urls": {
+    "hero_community": {
+      "url": "https://images.unsplash.com/photo-1548782033-3ac3a62ece8d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxXZXN0JTIwQWZyaWNhbiUyMGNvbW11bml0eSUyMG1lZXRpbmclMjBoYXBweSUyMGdyb3VwfGVufDB8fHx8MTc2ODcwMzg5Mnww&ixlib=rb-4.1.0&q=85",
+      "description": "Happy community group meeting, conveys trust and togetherness.",
+      "category": "landing_hero"
+    },
+    "mobile_user": {
+      "url": "https://images.unsplash.com/photo-1662320152160-7e665c4301b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxibGFjayUyMHBlcnNvbiUyMHVzaW5nJTIwbW9iaWxlJTIwcGhvbmUlMjBmb3IlMjBwYXltZW50JTIwaGFwcHl8ZW58MHx8fHwxNzY4NzAzODk2fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Man using mobile phone for payment, focused and clear.",
+      "category": "feature_section"
+    },
+    "team_diverse": {
+      "url": "https://images.unsplash.com/photo-1758873269317-51888e824b28?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBvZmZpY2UlMjB0ZWFtJTIwbWVldGluZyUyMGRpdmVyc2V8ZW58MHx8fHwxNzY4NzAzODk5fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Diverse team collaborating, good for 'About Us' or Admin context.",
+      "category": "about_us"
+    }
+  },
+  "instructions_to_main_agent": {
+    "general": "You are building a mobile-first fintech app for West Africa. Prioritize legibility, large touch targets, and high contrast. The aesthetic should be 'Modern African Fintech' - professional but warm.",
+    "theme_setup": "Use the provided color palette. Ensure 'primary' is mapped to Emerald-900 and 'secondary' to Stone-100 in tailwind.config.js.",
+    "layout_strategy": "Use the 'Bento' grid for the dashboard. On mobile, stack everything vertically with generous spacing (gap-6).",
+    "component_overrides": "Customize Shadcn components. Remove default heavy shadows. Use borders and subtle background colors to define hierarchy.",
+    "charts": "Use Recharts (via Shadcn Charts) for the wallet history. Style them with the primary green and accent blue.",
+    "accessibility": "Ensure all text meets WCAG AA contrast. Use 'data-testid' on all interactive elements."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (12-24px blur)",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN",
+    "Prioritize using pre-existing components from src/components/ui when applicable",
+    "Create new components that match the style and conventions of existing components when needed",
+    "Examine existing components to understand the project's component patterns before creating new ones",
+    "Components MUST use named exports (export const ComponentName = ...)",
+    "Pages MUST use default exports (export default function PageName() {...})",
+    "Use sonner for toasts. Sonner component are located in /app/src/components/ui/sonner.tsx"
+  ]
+}
