@@ -17,6 +17,7 @@ export default function GroupDetail() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [contributionAmount, setContributionAmount] = useState('');
+  const [contributeOpen, setContributeOpen] = useState(false);
 
   useEffect(() => {
     fetchGroupData();
