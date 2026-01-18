@@ -63,6 +63,7 @@ export default function Groups() {
       await api.post(`/groups/join/${joinCode}`);
       toast.success('Successfully joined group!');
       setJoinCode('');
+      setJoinOpen(false);
       fetchGroups();
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Failed to join group');
