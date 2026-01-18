@@ -116,7 +116,7 @@ export default function Groups() {
               </DialogContent>
             </Dialog>
 
-            <Dialog>
+            <Dialog open={createOpen} onOpenChange={setCreateOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-emerald-900 hover:bg-emerald-800 text-white rounded-full" data-testid="create-group-button">
                   Create Group
