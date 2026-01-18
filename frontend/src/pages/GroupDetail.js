@@ -49,6 +49,7 @@ export default function GroupDetail() {
       });
       toast.success('Contribution successful!');
       setContributionAmount('');
+      setContributeOpen(false);
       fetchGroupData();
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Contribution failed');
