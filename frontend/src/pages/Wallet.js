@@ -171,7 +171,7 @@ export default function Wallet() {
               </DialogContent>
             </Dialog>
 
-            <Dialog>
+            <Dialog open={withdrawOpen} onOpenChange={setWithdrawOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-emerald-700 hover:bg-emerald-600 text-white rounded-full px-8" data-testid="withdraw-button">
                   Withdraw Money
