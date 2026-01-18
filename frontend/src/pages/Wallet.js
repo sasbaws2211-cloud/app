@@ -60,6 +60,7 @@ export default function Wallet() {
       await api.post('/wallet/deposit', depositData);
       toast.success('Deposit initiated! Check your phone for prompt.');
       setDepositData({ amount: '', phone_number: '', provider: 'MTN' });
+      setDepositOpen(false);
       fetchData();
     } catch (error) {
       toast.error(error.response?.data?.detail || 'Deposit failed');
