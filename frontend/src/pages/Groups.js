@@ -87,7 +87,7 @@ export default function Groups() {
           <h1 className="font-chivo text-4xl font-bold text-emerald-950">My Groups</h1>
           
           <div className="flex space-x-4">
-            <Dialog>
+            <Dialog open={joinOpen} onOpenChange={setJoinOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-emerald-700 hover:bg-emerald-600 text-white rounded-full" data-testid="join-group-button">
                   Join Group
