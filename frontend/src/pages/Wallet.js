@@ -107,7 +107,7 @@ export default function Wallet() {
           <h2 className="font-chivo text-6xl font-bold mb-6">GH₵ {wallet?.balance.toFixed(2)}</h2>
           
           <div className="flex space-x-4">
-            <Dialog>
+            <Dialog open={depositOpen} onOpenChange={setDepositOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-white text-emerald-900 hover:bg-emerald-50 rounded-full px-8" data-testid="deposit-button">
                   Deposit Money
