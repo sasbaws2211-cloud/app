@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, useRef } from 'react';
+=======
+import React, { useEffect, useState, useRef, useCallback } from 'react';
+>>>>>>> 17c6933 (initial update)
 import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
@@ -14,6 +18,7 @@ export default function Chat() {
   const { user } = useAuth();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+<<<<<<< HEAD
   const [ws, setWs] = useState(null);
   const [connected, setConnected] = useState(false);
   const messagesEndRef = useRef(null);
@@ -47,18 +52,74 @@ export default function Chat() {
   };
 
   const connectWebSocket = () => {
+=======
+  const wsRef = useRef(null);
+  const [connected, setConnected] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  const fetchMessages = useCallback(async () => {
+    try {
+      const response = await api.get(`/groups/${groupId}/messages`);
+      // Normalize incoming messages so each has `uid` and `sender_uid` fields (backend may use uid/sender_uid)
+      const normalized = response.data.map((m) => ({
+        ...m,
+        id: m.id ?? m.uid,
+        uid: m.uid ?? m.id,
+        sender_uid: m.sender_uid ?? m.sender_id,
+      }));
+      setMessages(normalized);
+    } catch (error) {
+      toast.error('Failed to load messages');
+    }
+  }, [groupId]);
+
+  const connectWebSocket = useCallback(() => {
+>>>>>>> 17c6933 (initial update)
     const token = authService.getToken();
     const wsUrl = process.env.REACT_APP_BACKEND_URL.replace('https://', 'wss://').replace('http://', 'ws://');
     const socket = new WebSocket(`${wsUrl}/api/ws/chat/${groupId}?token=${token}`);
 
     socket.onopen = () => {
+<<<<<<< HEAD
+=======
+      wsRef.current = socket;
+>>>>>>> 17c6933 (initial update)
       setConnected(true);
       console.log('WebSocket connected');
     };
 
     socket.onmessage = (event) => {
+<<<<<<< HEAD
       const message = JSON.parse(event.data);
       setMessages((prev) => [...prev, message]);
+=======
+      const raw = JSON.parse(event.data);
+      const message = {
+        ...raw,
+        id: raw.id ?? raw.uid,
+        uid: raw.uid ?? raw.id,
+        sender_uid: raw.sender_uid ?? raw.sender_id,
+      };
+      setMessages((prev) => {
+        // If server-provided uid already exists, ignore
+        if (message.uid && prev.some((m) => m.uid === message.uid)) return prev;
+
+        // If this message came from the current user, try to reconcile with a pending local message
+        if (message.sender_uid && user?.uid && message.sender_uid === user.uid) {
+          const serverTime = new Date(message.created_at).getTime();
+          const pendingIndex = prev.findIndex((m) => m.pending && m.sender_uid === user.uid && m.content === message.content && Math.abs(new Date(m.created_at).getTime() - serverTime) < 15000);
+          if (pendingIndex !== -1) {
+            const next = [...prev];
+            next[pendingIndex] = message; // replace pending local with authoritative server message
+            return next;
+          }
+        }
+
+        // Generic duplicate check by uid or (sender+content+time) fallback
+        if (prev.some((m) => (m.uid ?? m.id) === message.uid)) return prev;
+        return [...prev, message];
+      });
+>>>>>>> 17c6933 (initial update)
     };
 
     socket.onerror = (error) => {
@@ -69,7 +130,11 @@ export default function Chat() {
     socket.onclose = () => {
       setConnected(false);
       console.log('WebSocket disconnected');
+<<<<<<< HEAD
       
+=======
+      wsRef.current = null;
+>>>>>>> 17c6933 (initial update)
       // Attempt to reconnect after 3 seconds
       setTimeout(() => {
         if (groupId) {
@@ -78,16 +143,63 @@ export default function Chat() {
       }, 3000);
     };
 
+<<<<<<< HEAD
     setWs(socket);
   };
+=======
+  }, [groupId, user?.uid]);
+
+  useEffect(() => {
+    fetchMessages();
+    connectWebSocket();
+
+    return () => {
+      if (wsRef.current) {
+        wsRef.current.close();
+      }
+    };
+  }, [fetchMessages, connectWebSocket]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+>>>>>>> 17c6933 (initial update)
 
   const handleSendMessage = (e) => {
     e.preventDefault();
     
+<<<<<<< HEAD
     if (!newMessage.trim() || !ws || !connected) return;
 
     ws.send(JSON.stringify({
       content: newMessage.trim()
+=======
+    if (!newMessage.trim() || !wsRef.current || !connected) return;
+    const content = newMessage.trim();
+
+    // Build optimistic local message so user's message appears immediately
+    const localUid = `local-${Date.now()}`;
+    const optimistic = {
+      uid: localUid,
+      id: localUid,
+      sender_uid: user?.uid,
+      sender_name: user?.name,
+      content,
+      created_at: new Date().toISOString(),
+      pending: true,
+    };
+
+    setMessages((prev) => [...prev, optimistic]);
+
+    // Send to server (server may echo back the authoritative message)
+    wsRef.current.send(JSON.stringify({
+      content,
+>>>>>>> 17c6933 (initial update)
     }));
 
     setNewMessage('');
@@ -125,6 +237,7 @@ export default function Chat() {
           <div className="flex-1 overflow-y-auto space-y-4 mb-4">
             {messages.length === 0 ? (
               <p className="text-slate-500 text-center py-12">No messages yet. Start the conversation!</p>
+<<<<<<< HEAD
             ) : (
               messages.map((msg) => (
                 <div 
@@ -138,11 +251,30 @@ export default function Chat() {
                       : 'bg-stone-100 text-emerald-950'
                   } rounded-2xl px-4 py-3`}>
                     {msg.sender_id !== user?.id && (
+=======
+              ) : (
+              messages.map((msg) => (
+                <div 
+                  key={msg.uid} 
+                  className={`flex ${msg.sender_uid === user?.uid ? 'justify-start' : 'justify-end'}`}
+                  data-testid={`message-${msg.uid}`}
+                >
+                  <div className={`max-w-md ${
+                    msg.sender_uid === user?.uid 
+                      ? 'bg-emerald-900 text-white' 
+                      : 'bg-stone-100 text-emerald-950'
+                  } rounded-2xl px-4 py-3`}>
+                    {msg.sender_uid !== user?.uid && (
+>>>>>>> 17c6933 (initial update)
                       <p className="text-xs font-semibold mb-1 opacity-70">{msg.sender_name}</p>
                     )}
                     <p className="text-sm">{msg.content}</p>
                     <p className={`text-xs mt-1 ${
+<<<<<<< HEAD
                       msg.sender_id === user?.id ? 'text-emerald-200' : 'text-slate-500'
+=======
+                      msg.sender_uid === user?.uid ? 'text-emerald-200' : 'text-slate-500'
+>>>>>>> 17c6933 (initial update)
                     }`}>
                       {new Date(msg.created_at).toLocaleTimeString()}
                     </p>

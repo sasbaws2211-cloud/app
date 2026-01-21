@@ -2,7 +2,12 @@ aiohappyeyeballs==2.6.1
 aiohttp==3.13.3
 aiosignal==1.4.0
 annotated-types==0.7.0
+<<<<<<< HEAD
 anyio==4.12.0
+=======
+anyio==4.12.0 
+alembic==1.14.1
+>>>>>>> 17c6933 (initial update)
 asyncpg==0.31.0
 attrs==25.4.0
 bcrypt==4.1.3
@@ -18,7 +23,10 @@ distro==1.9.0
 dnspython==2.8.0
 ecdsa==0.19.1
 email-validator==2.3.0
+<<<<<<< HEAD
 emergentintegrations==0.1.0
+=======
+>>>>>>> 17c6933 (initial update)
 fastapi==0.110.1
 fastuuid==0.14.0
 filelock==3.20.2
@@ -80,7 +88,12 @@ pyasn1==0.6.1
 pyasn1_modules==0.4.2
 pycodestyle==2.14.0
 pycparser==2.23
+<<<<<<< HEAD
 pydantic==2.12.5
+=======
+pydantic==2.12.5 
+pydantic_settings
+>>>>>>> 17c6933 (initial update)
 pydantic_core==2.41.5
 pyflakes==3.4.0
 Pygments==2.19.2
@@ -95,7 +108,11 @@ python-multipart==0.0.21
 pytokens==0.3.0
 pytz==2025.2
 PyYAML==6.0.3
+<<<<<<< HEAD
 referencing==0.37.0
+=======
+referencing
+>>>>>>> 17c6933 (initial update)
 regex==2025.11.3
 reportlab==4.4.9
 requests==2.32.5
@@ -108,7 +125,12 @@ s5cmd==0.2.0
 shellingham==1.5.4
 six==1.17.0
 sniffio==1.3.1
+<<<<<<< HEAD
 SQLAlchemy==2.0.45
+=======
+SQLAlchemy==2.0.45 
+sqlmodel
+>>>>>>> 17c6933 (initial update)
 starlette==0.37.2
 stripe==14.1.0
 tenacity==9.1.2

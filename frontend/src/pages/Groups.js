@@ -183,9 +183,15 @@ export default function Groups() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="groups-list">
             {groups.map((group) => (
               <Link 
+<<<<<<< HEAD
                 key={group.id} 
                 to={`/groups/${group.id}`}
                 data-testid={`group-card-${group.id}`}
+=======
+                key={group.uid} 
+                to={`/groups/${group.uid}`}
+                data-testid={`group-card-${group.uid}`}
+>>>>>>> 17c6933 (initial update)
               >
                 <Card className="bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-lg transition-all duration-300 p-6 h-full">
                   <div className="flex justify-between items-start mb-4">

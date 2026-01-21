@@ -136,7 +136,11 @@ export default function Wallet() {
                     <Input
                       id="deposit-phone"
                       type="tel"
+<<<<<<< HEAD
                       placeholder="+233XXXXXXXXX"
+=======
+                      placeholder="XXXXXXXXXX"
+>>>>>>> 17c6933 (initial update)
                       value={depositData.phone_number}
                       onChange={(e) => setDepositData({ ...depositData, phone_number: e.target.value })}
                       required
@@ -200,7 +204,11 @@ export default function Wallet() {
                     <Input
                       id="withdraw-phone"
                       type="tel"
+<<<<<<< HEAD
                       placeholder="+233XXXXXXXXX"
+=======
+                      placeholder="XXXXXXXXXX"
+>>>>>>> 17c6933 (initial update)
                       value={withdrawData.phone_number}
                       onChange={(e) => setWithdrawData({ ...withdrawData, phone_number: e.target.value })}
                       required
